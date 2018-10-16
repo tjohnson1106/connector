@@ -8,8 +8,10 @@ const passport = require("passport");
 const User = require("../../models/User");
 const keys = require("../../config/key");
 
-// TODO 10152018 implement validation
+// load input validation
+const validateRegisterInput = require("../../validation/register");
 
+// @route api/users/register
 router.get("/test", (req, res) =>
   res.json({
     msg: "Users route"
