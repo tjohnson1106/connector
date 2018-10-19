@@ -46,6 +46,7 @@ router.get(
 // @route api/profile/all
 // @access public
 
+// TODO returning no no profile error though profiles exist
 router.get("/all", (req, res) => {
   const errors = {};
 
@@ -53,16 +54,17 @@ router.get("/all", (req, res) => {
     .populate("user", ["name", "avatar"])
     .then(profiles => {
       if (!noprofiles) {
-        errors.noprofiles = "There are no existing profiles";
+        errors.noprofile = "There are no existing profiles";
         return res.status(404).json(errors);
       }
 
-      res.json({ profiles });
+      res.json(profiles);
     })
-    .catch(err =>
-      res.status(404).json({
-        profile: "There are no existing profiles"
-      })
+    .catch(
+      err => res.status(404).json(err)
+      // res.status(404).json({
+      //   profile: "There are no profiles"
+      // })
     );
 });
 
