@@ -201,10 +201,38 @@ router.post(
             errors.handle = "Handle already exists";
             res.status(400).json(errors);
           }
-
+          // Save profile
           new Profile(profileFields).save().then(profile => res.json(profile));
         });
       }
+    });
+  }
+);
+
+// @route POST api/profile/experience
+// @access Private
+
+router.post(
+  "/experience",
+  passport.authenticate("jwt", {
+    session: false
+  }),
+  () => {
+    Profile.findOne({ user: req.user_id }).then(profile => {
+      const newExp = {
+        title: req.body.title,
+        company: req.body.company,
+        location: req.body.location,
+        from: req.body.from,
+        to: req.body.to,
+        current: req.body.current,
+        description: req.body.description
+      };
+
+      // Add to experience array
+      profile.experience.unshift(newExp);
+
+      profile.save().then(profile => res.json(profile));
     });
   }
 );
