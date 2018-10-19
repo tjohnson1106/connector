@@ -90,7 +90,7 @@ router.post("/login", (req, res) => {
           keys.secretOrKey,
           // TODO create variable for expireIn
           {
-            expiresIn: 7200 * 100
+            expiresIn: 7200
           },
           (err, token) => {
             res.json({
