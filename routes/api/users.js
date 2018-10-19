@@ -88,8 +88,9 @@ router.post("/login", (req, res) => {
         jwt.sign(
           payload,
           keys.secretOrKey,
+          // TODO create variable for expireIn
           {
-            expiresIn: 7200
+            expiresIn: 7200 * 100
           },
           (err, token) => {
             res.json({
