@@ -3,9 +3,6 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const passport = require("passport");
 
-// TODO 10192018 Delete education and experience routes
-// TODO 102220180103 Continue delete routes
-
 // Load Validation
 const validateProfileInput = require("../../validation/profile");
 const validateExperienceInput = require("../../validation/experience");
@@ -312,6 +309,7 @@ router.delete(
 
 // @route DELETE api/profile/education/:edu_id
 // @access private
+
 router.delete(
   "/education/:edu_id",
   passport.authenticate("jwt", {
@@ -335,6 +333,30 @@ router.delete(
         profile.save().then(profile => res.json(profile));
       })
       .catch(err => res.status(404).json(err));
+  }
+);
+
+// @route DELETE api/profile
+// @access private
+
+router.delete(
+  "/",
+  passport.authenticate("jwt", {
+    session: false
+  }),
+  (req, res) => {
+    Profile.findOneAndRemove({
+      user: req.user.id
+    }).then(() => {
+      // TODO implement option to also delete user with profile
+      User.findOneAndRemove({
+        id: req.user.id
+      }).then(() =>
+        res.json({
+          success: true
+        })
+      );
+    });
   }
 );
 
