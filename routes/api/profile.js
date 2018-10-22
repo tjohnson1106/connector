@@ -3,7 +3,8 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const passport = require("passport");
 
-// TODO 10192018 Delete education and profile routes
+// TODO 10192018 Delete education and experience routes
+// TODO 102220180103 Continue delete routes
 
 // Load Validation
 const validateProfileInput = require("../../validation/profile");
@@ -281,8 +282,9 @@ router.post(
   }
 );
 
+// @route DELETE api/profile/experince/:exp_id
 // @access private
-router.post(
+router.delete(
   "/experience/:exp_id",
   passport.authenticate("jwt", {
     session: false
@@ -300,6 +302,34 @@ router.post(
 
         // Splice out of array
         profile.experience.splice(removeIndex, 1);
+
+        // Save
+        profile.save().then(profile => res.json(profile));
+      })
+      .catch(err => res.status(404).json(err));
+  }
+);
+
+// @route DELETE api/profile/education/:edu_id
+// @access private
+router.delete(
+  "/education/:edu_id",
+  passport.authenticate("jwt", {
+    session: false
+  }),
+  (req, res) => {
+    Profile.findOne({
+      user: req.user.id
+    })
+      .then(profile => {
+        // Get remove index
+
+        const removeIndex = profile.education
+          .map(item => item.id)
+          .indexOf(req.params.edu_id);
+
+        // Splice out of array
+        profile.education.splice(removeIndex, 1);
 
         // Save
         profile.save().then(profile => res.json(profile));
