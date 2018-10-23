@@ -18,6 +18,26 @@ router.get("/test", (req, res) =>
   })
 );
 
+// GET api/posts
+// @access public
+
+router.get("/", (req, res) => {
+  Post.find()
+    .sort({ date: -1 })
+    .then(posts => res.json(posts))
+    .catch(err => res.status(404));
+});
+
+// GET api/posts/:id
+// @access public
+
+router.get("/", (req, res) => {
+  Post.find()
+    .sort({ date: -1 })
+    .then(posts => res.json(posts))
+    .catch(err => res.status(404));
+});
+
 // POST api/posts
 // @access private
 
