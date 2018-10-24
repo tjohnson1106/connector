@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar />
-        <h1>Connector</h1>
+        <Landing />
         <Footer />
       </div>
     );
