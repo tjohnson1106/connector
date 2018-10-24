@@ -49,6 +49,8 @@ router.get(
 // @access public
 
 // TODO returning no no profile error though profiles exist
+// TODO retest above issue
+
 router.get("/all", (req, res) => {
   const errors = {};
 
