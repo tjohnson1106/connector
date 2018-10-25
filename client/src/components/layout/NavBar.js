@@ -7,7 +7,7 @@ class Navbar extends PureComponent {
     return (
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
         <div className="container">
-          <Link className="navbar-brand" to="/register">
+          <Link className="navbar-brand" to="/">
             Connector
           </Link>
           <button
@@ -21,22 +21,22 @@ class Navbar extends PureComponent {
           <div className="collapse navbar-collapse" id="mobile-nav">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item">
-                <a className="nav-link" href="profiles.html">
+                <Link className="nav-link" to="/profiles">
                   {" "}
                   Developers
-                </a>
+                </Link>
               </li>
             </ul>
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <a className="nav-link" href="register.html">
+                <Link className="nav-link" to="/register">
                   Sign Up
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="login.html">
+                <Link className="nav-link" to="/login">
                   Login
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
