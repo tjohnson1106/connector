@@ -1,14 +1,15 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
+import { Link } from "react-router-dom";
 
-class Navbar extends Component {
+class Navbar extends PureComponent {
   state = {};
   render() {
     return (
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
         <div className="container">
-          <a className="navbar-brand" href="landing.html">
-            DevConnector
-          </a>
+          <Link className="navbar-brand" to="/register">
+            Connector
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
