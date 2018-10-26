@@ -23,6 +23,7 @@ class Navbar extends Component {
             className="nav-link"
           >
             <img
+              className="rounded-circle"
               src={user.avatar}
               alt={user.name}
               style={{
@@ -31,6 +32,7 @@ class Navbar extends Component {
               }}
               title="Gravatar must be connected"
             />
+            Logout
           </a>
         </li>
       </ul>
