@@ -6,8 +6,6 @@ import { connect } from "react-redux";
 
 import { registerUser } from "../../../actions/authActions";
 
-// TODO Error Reducer 102520181656
-
 class Register extends Component {
   constructor() {
     super();
