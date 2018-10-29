@@ -34,7 +34,7 @@ export const setProfileLoading = () => {
     type: PROFILE_LOADING
   };
 };
-// Clear Profile
+// Clear Profile {} to null on logout
 
 export const clearCurrentProfile = () => {
   return {

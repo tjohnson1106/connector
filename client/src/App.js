@@ -16,6 +16,7 @@ import Dashboard from "./components/Dashboard";
 
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
+import { clearCurrentProfile } from "./actions/profileActions";
 
 // Check for token
 
@@ -41,8 +42,7 @@ if (localStorage.jwtToken) {
 
     store.dispatch(logoutUser());
 
-    // TODO Clear current profile
-    // Redirect to login
+    store.dispatch(clearCurrentProfile());
 
     window.location.href = "";
   }
