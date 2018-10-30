@@ -88,6 +88,54 @@ class CreateProfile extends Component {
                   error={errors.status}
                   info="Give us a snapshot as where you are in your career"
                 />
+                <TextFieldGroup
+                  placeholder="Company"
+                  name="company"
+                  value={this.state.company}
+                  onChange={this.onChange}
+                  error={errors.company}
+                  info="Could be your own company or one you work for"
+                />
+                <TextFieldGroup
+                  placeholder="Website"
+                  name="website"
+                  value={this.state.website}
+                  onChange={this.onChange}
+                  error={errors.website}
+                  info="Business or personal website"
+                />
+                <TextFieldGroup
+                  placeholder="Location"
+                  name="location"
+                  value={this.state.location}
+                  onChange={this.onChange}
+                  error={errors.location}
+                  info="City and state"
+                />
+                <TextFieldGroup
+                  placeholder="* Skills"
+                  name="skills"
+                  value={this.state.skills}
+                  onChange={this.onChange}
+                  error={errors.skills}
+                  info="Please use comma separated values (eg. JavaScript, HTML, Ruby, etc)"
+                />
+                <TextFieldGroup
+                  placeholder="Github Username"
+                  name="githubusername"
+                  value={this.state.githubusername}
+                  onChange={this.onChange}
+                  error={errors.githubusername}
+                  info="Connect to your Github account"
+                />
+                <TextAreaFieldGroup
+                  placeholder="Short Biography"
+                  name="bio"
+                  value={this.state.bio}
+                  onChange={this.onChange}
+                  error={errors.bio}
+                  info="Tell us a little about yourself"
+                />
               </form>
             </div>
           </div>
