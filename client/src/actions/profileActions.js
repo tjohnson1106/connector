@@ -4,7 +4,8 @@ import {
   GET_PROFILE,
   PROFILE_LOADING,
   CLEAR_CURRENT_PROFILE,
-  GET_ERRORS
+  GET_ERRORS,
+  SET_CURRENT_USER
 } from "./types";
 
 // Get current profile
@@ -39,6 +40,19 @@ export const createProfile = (profileData, history) => dispatch => {
         payload: err.response.data
       })
     );
+};
+
+// Delete account and profile
+
+export const deleteAccount = () => dispatch => {
+  if (window.confirm("Are you sure? This CAN NOT be undone!")) {
+    axios.delete("/api/profile").then(res =>
+      dispatch({
+        type: SET_CURRENT_USER,
+        payload: {}
+      })
+    );
+  }
 };
 
 // Profile Loading
