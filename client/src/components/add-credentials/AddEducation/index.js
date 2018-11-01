@@ -7,8 +7,6 @@ import TextFieldGroup from "../../common/TextFieldGroup";
 import TextAreaFieldGroup from "../../common/TextAreaFieldGroup";
 import { addEducation } from "../../../actions/profileActions";
 
-// TODO: Create form fields
-
 class AddEducation extends Component {
   constructor(props) {
     super(props);
@@ -108,7 +106,7 @@ class AddEducation extends Component {
                   error={errors.degree}
                 />
                 <TextFieldGroup
-                  placeholder="Field of Study"
+                  placeholder="* Field of Study"
                   name="fieldofstudy"
                   value={this.state.fieldofstudy}
                   onChange={this.onChange}

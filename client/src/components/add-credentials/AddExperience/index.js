@@ -7,8 +7,6 @@ import TextFieldGroup from "../../common/TextFieldGroup";
 import TextAreaFieldGroup from "../../common/TextAreaFieldGroup";
 import { addExperience } from "../../../actions/profileActions";
 
-// TODO: Create form fields
-
 class AddExperience extends Component {
   constructor(props) {
     super(props);
