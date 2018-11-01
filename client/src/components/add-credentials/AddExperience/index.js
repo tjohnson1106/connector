@@ -7,8 +7,6 @@ import TextFieldGroup from "../../common/TextFieldGroup";
 import TextAreaFieldGroup from "../../common/TextAreaFieldGroup";
 import { addExperience } from "../../../actions/profileActions";
 
-// TODO: Create form fields
-
 class AddExperience extends Component {
   constructor(props) {
     super(props);
@@ -148,7 +146,7 @@ class AddExperience extends Component {
                     Current Position
                   </label>
                 </div>
-                <TextFieldGroup
+                <TextAreaFieldGroup
                   placeholder="Job Description"
                   name="description"
                   value={this.state.description}
