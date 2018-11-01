@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
+import Experience from "./Experience";
 import { getCurrentProfile, deleteAccount } from "../../actions/profileActions";
 import Spinner from "../common/Spinner";
 import ProfileActionsView from "./ProfileActionsView";
@@ -34,7 +35,7 @@ class Dashboard extends Component {
               Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
             </p>
             <ProfileActionsView />
-            {/* TODO: experience and education */}
+            <Experience experience={profile.experience} />
             <div
               style={{
                 marginBottom: "60px"
