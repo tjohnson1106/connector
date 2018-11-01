@@ -17,6 +17,7 @@ class AddExperience extends Component {
       title: "",
       location: "",
       to: "",
+      from: "",
       current: "",
       description: "",
       errors: {},
@@ -26,6 +27,14 @@ class AddExperience extends Component {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.onCheck = this.onCheck.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({
+        errors: nextProps.errors
+      });
+    }
   }
 
   onSubmit(e) {
