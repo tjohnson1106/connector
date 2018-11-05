@@ -19,16 +19,20 @@ class Profile extends Component {
 
   state = {};
   render() {
-    return <div>{}</div>;
+    return <div />;
   }
 }
 
 Profile.propTypes = {
-  profile: PropTypes.object.isRequired
+  profile: PropTypes.object.isRequired,
+  getProfileByHandle: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
   profile: state.profile
 });
 
-export default connect(mapStateToProps)(Profile);
+export default connect(
+  mapStateToProps,
+  { getProfileByHandle }
+)(Profile);
