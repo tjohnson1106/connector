@@ -14,9 +14,9 @@ class AddEducation extends Component {
       school: "",
       degree: "",
       fieldofstudy: "",
-      to: "",
       from: "",
-      current: "",
+      to: "",
+      current: false,
       description: "",
       errors: {},
       disabled: false
@@ -143,7 +143,7 @@ class AddEducation extends Component {
                     id="current"
                   />
                   <label htmlFor="current" className="form-check-label">
-                    Current Position
+                    Continuing Education
                   </label>
                 </div>
                 <TextAreaFieldGroup
